@@ -40,14 +40,14 @@ public class TaskServiceImpl implements TaskService {
         List<Task> tasks = taskRepository.findMostRecent5Tasks();
 
         List<TaskDTO> taskList = new ArrayList<TaskDTO>();
-        for(int i = 0; i < tasks.size(); i++){
+        for (Task task : tasks) {
             TaskDTO taskDto = new TaskDTO();
 
-            taskDto.setId(tasks.get(i).getId());
-            taskDto.setTitle(tasks.get(i).getTitle());
-            taskDto.setDescription(tasks.get(i).getDescription());
-            taskDto.setStatus(tasks.get(i).getStatus());
-            taskDto.setCreatedAt(tasks.get(i).getCreatedAt());
+            taskDto.setId(task.getId());
+            taskDto.setTitle(task.getTitle());
+            taskDto.setDescription(task.getDescription());
+            taskDto.setStatus(task.getStatus());
+            taskDto.setCreatedAt(task.getCreatedAt());
             taskList.add(taskDto);
         }
         return taskList;
