@@ -8,5 +8,5 @@ public interface TaskService {
 
     TaskDTO createTask(TaskDTO taskDTO);
     List<TaskDTO> findMostRecentTasks();
-    void updateTaskStatus(Long id, TaskDTO taskDTO) throws Exception;
+    void updateTaskStatus(Long id, TaskDTO taskDTO);
 }

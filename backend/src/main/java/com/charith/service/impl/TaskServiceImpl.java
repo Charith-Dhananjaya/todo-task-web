@@ -1,6 +1,7 @@
 package com.charith.service.impl;
 
 import com.charith.dto.TaskDTO;
+import com.charith.exception.ResourceNotFoundException;
 import com.charith.model.Task;
 import com.charith.repository.TaskRepository;
 import com.charith.service.TaskService;
@@ -54,10 +55,10 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void updateTaskStatus(Long id, TaskDTO taskDTO) throws Exception {
+    public void updateTaskStatus(Long id, TaskDTO taskDTO) {
 
         Task existingTask = taskRepository.findById(id).orElseThrow(
-                ()-> new Exception("Task not found")
+                ()-> new ResourceNotFoundException("Task not found")
         );
         existingTask.setStatus(taskDTO.getStatus());
 

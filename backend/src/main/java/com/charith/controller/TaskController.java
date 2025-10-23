@@ -28,7 +28,7 @@ public class TaskController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<String> updateTask(@PathVariable Long id,
-                                             @RequestBody TaskDTO taskDTO) throws Exception {
+                                             @RequestBody TaskDTO taskDTO) {
         taskService.updateTaskStatus(id, taskDTO);
         return ResponseEntity.ok("Task status updated successfully");
     }
