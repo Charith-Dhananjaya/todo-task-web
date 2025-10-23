@@ -52,4 +52,16 @@ public class TaskServiceImpl implements TaskService {
         }
         return taskList;
     }
+
+    @Override
+    public void updateTaskStatus(Long id, TaskDTO taskDTO) throws Exception {
+
+        Task existingTask = taskRepository.findById(id).orElseThrow(
+                ()-> new Exception("Task not found")
+        );
+        existingTask.setStatus(taskDTO.getStatus());
+
+        taskRepository.save(existingTask);
+
+    }
 }

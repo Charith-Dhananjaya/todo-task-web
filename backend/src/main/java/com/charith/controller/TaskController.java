@@ -1,7 +1,6 @@
 package com.charith.controller;
 
 import com.charith.dto.TaskDTO;
-import com.charith.model.Task;
 import com.charith.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,5 +24,12 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<List<TaskDTO>> findMostRecentTasks() {
         return ResponseEntity.ok(taskService.findMostRecentTasks());
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<String> updateTask(@PathVariable Long id,
+                                             @RequestBody TaskDTO taskDTO) throws Exception {
+        taskService.updateTaskStatus(id, taskDTO);
+        return ResponseEntity.ok("Task status updated successfully");
     }
 }
