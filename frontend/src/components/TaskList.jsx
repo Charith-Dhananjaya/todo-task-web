@@ -1,12 +1,13 @@
 import React from "react";
 import TaskCard from "./TaskCard";
-import NoTaskFound from "./NoTaskFound";
 
 const TaskList = ({ tasks, onMarkDone }) => {
-  if (tasks.length === 0) return <NoTaskFound />;
+  if (!tasks?.length) {
+    return <p className="no-task" data-testid="no-task">No tasks available.</p>;
+  }
 
   return (
-    <div className="task-list">
+    <div className="task-list" data-testid="task-list">
       {tasks.map((task) => (
         <TaskCard key={task.id} task={task} onMarkDone={onMarkDone} />
       ))}

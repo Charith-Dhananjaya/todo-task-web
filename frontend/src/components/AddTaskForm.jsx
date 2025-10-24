@@ -20,20 +20,22 @@ const AddTaskForm = ({ onAddTask }) => {
   };
 
   return (
-    <form className="add-task-form" onSubmit={handleSubmit}>
+    <form className="add-task-form" onSubmit={handleSubmit} data-testid="add-form">
       <h2>Add a Task</h2>
       <input
+        data-testid="title-input"
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
+        data-testid="description-input"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button type="submit" className="add-btn">Add</button>
+      <button type="submit" className="add-btn" data-testid="add-btn">Add</button>
       {error && <p className="error-message">{error}</p>}
     </form>
   );
