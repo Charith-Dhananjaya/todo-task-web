@@ -12,3 +12,6 @@ From the project root (where `docker-compose.yml` is located), run:
 
 ```bash
 docker compose up -d --build
+
+### 3.Access the application
+http://localhost:5173
