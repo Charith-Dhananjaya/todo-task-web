@@ -1,0 +1,7 @@
+node_modules/
+src/**/*.test.*
+src/**/*.spec.*
+coverage/
+.vscode/
+.git/
+.env
