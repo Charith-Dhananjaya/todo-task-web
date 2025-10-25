@@ -23,6 +23,7 @@ services:
       db:
         condition: service_healthy
     environment:
+      ALLOWEDORIGINS: http://localhost:5173
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/todo_task_db?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: app
       SPRING_DATASOURCE_PASSWORD: app
